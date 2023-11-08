@@ -1,0 +1,63 @@
+#!/usr/bin/env sh
+
+sudo yabai --load-sa
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+
+# global settings
+yabai -m config window_border_blur off
+yabai -m config focus_follows_mouse          autofocus
+yabai -m config window_origin_display        default
+yabai -m config window_placement             second_child
+yabai -m config window_topmost               off
+yabai -m config window_shadow                off
+yabai -m config window_opacity               off
+yabai -m config window_border                on
+yabai -m config window_border_width          2.0
+#yabai -m config active_window_border_color   0xffa9b665
+#yabai -m config active_window_border_color   0xff306844
+yabai -m config active_window_border_color   0xff125374
+yabai -m config normal_window_border_color   0xff555555
+yabai -m config insert_feedback_color        0xffd75f5f
+yabai -m config split_ratio                  0.50
+yabai -m config auto_balance                 off
+yabai -m config mouse_modifier               fn
+yabai -m config mouse_action1                move
+yabai -m config mouse_action2                resize
+yabai -m config mouse_drop_action            swap
+yabai -m config window_border_radius		 0
+#yabai -m config window_border_hidpi		     on
+
+# general space settings
+yabai -m config layout                       bsp
+yabai -m config top_padding                  20
+yabai -m config bottom_padding               0
+yabai -m config left_padding                 0
+# NOTE: for OBS floating head
+# yabai -m config left_padding                 450
+yabai -m config right_padding                0
+yabai -m config window_gap                   0
+
+# apps to not manage (ignore)
+yabai -m rule --add app="^System Settings$" manage=off
+yabai -m rule --add app="^Reminders$" manage=off
+yabai -m rule --add app="^System Preferences$" manage=off
+yabai -m rule --add app="^Archive Utility$" manage=off
+yabai -m rule --add app="^Wally$" manage=off
+yabai -m rule --add app="^Pika$" manage=off
+yabai -m rule --add app="^balenaEtcher$" manage=off
+yabai -m rule --add app="^Creative Cloud$" manage=off
+yabai -m rule --add app="^Logi Options$" manage=off
+yabai -m rule --add app="^Alfred Preferences$" manage=off
+yabai -m rule --add app="Raycast" manage=off
+yabai -m rule --add app="^Music$" manage=off
+yabai -m rule --add app="^Calculator$" manage=off
+
+## custom space window
+#yabai -m rule --add app="^kitty$" space=1
+#yabai -m rule --add app="^(Brave Browser|Firefox|Safari)$" space=2
+#yabai -m rule --add app="^(mpv|UTM)$" space=3
+#yabai -m rule --add app="^(Whatsapp|Discord|Mail)$" space=4
+#yabai -m rule --add app="^(Messages|FaceTime)$" space=5
+#yabai -m signal --add event=space_changed \
+
+echo "yabai configuration loaded.."
